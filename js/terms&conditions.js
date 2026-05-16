@@ -2,6 +2,54 @@
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), {passive:true});
 
+
+// CLEAN MOBILE DRAWER NAV
+const navToggle = document.getElementById('navToggle');
+const navOverlay = document.getElementById('navOverlay');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const drawerClose = document.getElementById('drawerClose');
+
+function closeMobileNav() {
+  nav.classList.remove('menu-open');
+  document.body.classList.remove('nav-lock');
+
+  navToggle?.setAttribute('aria-expanded', 'false');
+  navToggle?.setAttribute('aria-label', 'Open menu');
+  mobileDrawer?.setAttribute('aria-hidden', 'true');
+}
+
+function openMobileNav() {
+  nav.classList.add('menu-open');
+  document.body.classList.add('nav-lock');
+
+  navToggle?.setAttribute('aria-expanded', 'true');
+  navToggle?.setAttribute('aria-label', 'Close menu');
+  mobileDrawer?.setAttribute('aria-hidden', 'false');
+}
+
+if (nav && navToggle) {
+  navToggle.addEventListener('click', () => {
+    nav.classList.contains('menu-open') ? closeMobileNav() : openMobileNav();
+  });
+
+  drawerClose?.addEventListener('click', closeMobileNav);
+  navOverlay?.addEventListener('click', closeMobileNav);
+
+  document.querySelectorAll('.drawer-links a, .drawer-demo, .drawer-logo').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      closeMobileNav();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+}
+
 /* hero entrance */
 gsap.set(['.hero .crumb','.hero h1','.hero p'], {autoAlpha:0, y:20});
 gsap.to('.hero .crumb', {autoAlpha:1, y:0, duration:.7, ease:'power3.out', delay:.1});
