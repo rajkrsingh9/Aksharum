@@ -1796,3 +1796,769 @@ footer .fbot {
     font-size: 13.5px;
   }
 }
+
+/* ================================================= */
+/* LIGHT / DARK MODE SYSTEM - CAREER PAGE */
+/* Paste at the VERY BOTTOM of career.css */
+/* ================================================= */
+
+/* ---------- Smooth theme transition ---------- */
+html,
+body,
+nav,
+.cr-hero,
+.cr-why,
+.cr-roles,
+.cr-vals,
+.cr-form-sec,
+.cr-why-card,
+.cr-wico,
+.cr-role-row,
+.cr-role-ico,
+.cr-role-arrow,
+.cr-val,
+.cr-val-ico,
+.cr-form-wrap,
+.cr-fi,
+.cr-file-box,
+.cr-file-ico,
+.cr-chk,
+.mobile-drawer,
+.drawer-head,
+.drawer-links,
+.drawer-bottom,
+.drawer-theme-toggle,
+footer {
+  transition:
+    background-color .28s ease,
+    color .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease;
+}
+
+/* ---------- Dark theme variables ---------- */
+html[data-theme="dark"] {
+  --p50: #171126;
+  --p100: #211735;
+  --p200: #31224f;
+  --p300: #4b3477;
+  --p400: #7455b8;
+  --p500: #9d83e6;
+  --p600: #b69cff;
+  --p700: #c7b3ff;
+  --p800: #ded2ff;
+  --p900: #0f0a1c;
+
+  --ink: #fbf8ff;
+  --ink2: #ded6f3;
+  --ink3: #a99dc2;
+
+  --bg: #0f0a1c;
+  --line: rgba(222, 210, 255, .14);
+
+  --sh: 0 2px 12px rgba(0, 0, 0, .22);
+  --sh-md: 0 8px 32px rgba(0, 0, 0, .28);
+  --sh-lg: 0 24px 64px rgba(0, 0, 0, .35);
+
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--ink2);
+}
+
+/* ================================================= */
+/* THEME TOGGLE BUTTON */
+/* Same HTML + JS as other pages */
+/* ================================================= */
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: inline-grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all .28s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--p400);
+  background: var(--p100);
+  color: var(--p700);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(93, 63, 184, .14);
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+/* Light mode shows moon */
+.theme-sun {
+  opacity: 0;
+  transform: translateY(8px) rotate(-35deg) scale(.75);
+}
+
+.theme-moon {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+/* Dark mode shows sun */
+html[data-theme="dark"] .theme-sun {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+html[data-theme="dark"] .theme-moon {
+  opacity: 0;
+  transform: translateY(-8px) rotate(35deg) scale(.75);
+}
+
+/* ================================================= */
+/* DARK MODE NAVBAR */
+/* ================================================= */
+
+html[data-theme="dark"] nav {
+  background: rgba(15, 10, 28, .84);
+  border-bottom-color: rgba(222, 210, 255, .1);
+}
+
+html[data-theme="dark"] nav.scrolled {
+  border-color: rgba(222, 210, 255, .14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .logo {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .logo-accent {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .lbox {
+  background: linear-gradient(135deg, #7c5fd6, #b8a4f0);
+  box-shadow: 0 8px 24px rgba(157, 131, 230, .24);
+}
+
+html[data-theme="dark"] .nlinks a {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .nlinks a:hover {
+  background: rgba(255, 255, 255, .06);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .nlinks a.active {
+  background: rgba(199, 179, 255, .12);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .n-login {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .n-login:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, .06);
+}
+
+html[data-theme="dark"] .n-demo,
+html[data-theme="dark"] .drawer-demo,
+html[data-theme="dark"] .cr-btn-pri,
+html[data-theme="dark"] .cr-submit {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(124, 95, 214, .28);
+}
+
+html[data-theme="dark"] .n-demo:hover,
+html[data-theme="dark"] .drawer-demo:hover,
+html[data-theme="dark"] .cr-btn-pri:hover,
+html[data-theme="dark"] .cr-submit:hover {
+  background: linear-gradient(135deg, #8f73e6, #c7b3ff);
+}
+
+/* ================================================= */
+/* DARK MODE CAREER HERO */
+/* ================================================= */
+
+html[data-theme="dark"] .cr-hero {
+  background:
+    radial-gradient(circle at 86% 12%, rgba(157, 131, 230, .14), transparent 34%),
+    radial-gradient(circle at 12% 82%, rgba(199, 179, 255, .1), transparent 34%),
+    linear-gradient(145deg, #120c20 0%, #19102b 48%, #0f0a1c 100%);
+}
+
+html[data-theme="dark"] .cr-hero::before {
+  background: radial-gradient(circle, rgba(199, 179, 255, .12), transparent 65%);
+}
+
+html[data-theme="dark"] .cr-hero::after {
+  background: linear-gradient(to bottom, transparent, var(--bg));
+}
+
+html[data-theme="dark"] .cr-ey,
+html[data-theme="dark"] .cr-sec-ey {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-ey::before,
+html[data-theme="dark"] .cr-sec-ey::before,
+html[data-theme="dark"] .cr-sec-ey::after {
+  background: var(--p500);
+}
+
+html[data-theme="dark"] .cr-hero-left h1 em,
+html[data-theme="dark"] .cr-sec-hd h2 em,
+html[data-theme="dark"] .cr-form-hd h2 em {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-hero-left p,
+html[data-theme="dark"] .cr-sec-hd p,
+html[data-theme="dark"] .cr-form-hd p {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .cr-btn-sec {
+  color: var(--p700);
+  border-color: rgba(199, 179, 255, .26);
+  background: rgba(255, 255, 255, .035);
+}
+
+html[data-theme="dark"] .cr-btn-sec:hover {
+  color: var(--p800);
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .4);
+}
+
+html[data-theme="dark"] .cr-perk {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .cr-perk svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-hero-img {
+  filter:
+    drop-shadow(0 24px 48px rgba(0, 0, 0, .28))
+    saturate(.95)
+    brightness(.92);
+}
+
+/* ================================================= */
+/* DARK MODE WHY JOIN US */
+/* ================================================= */
+
+html[data-theme="dark"] .cr-why {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .cr-why::before {
+  background: radial-gradient(circle, rgba(199, 179, 255, .08), transparent 65%);
+}
+
+html[data-theme="dark"] .cr-why-card {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .cr-why-card::before {
+  background: linear-gradient(135deg, rgba(199, 179, 255, .1), transparent 58%);
+}
+
+html[data-theme="dark"] .cr-why-card:hover {
+  background: rgba(199, 179, 255, .08);
+  border-color: rgba(199, 179, 255, .26);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .24);
+}
+
+html[data-theme="dark"] .cr-wico {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .16);
+}
+
+html[data-theme="dark"] .cr-wico svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-why-card:hover .cr-wico {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+  box-shadow: 0 8px 22px rgba(124, 95, 214, .28);
+}
+
+html[data-theme="dark"] .cr-why-card:hover .cr-wico svg {
+  color: #fff;
+}
+
+html[data-theme="dark"] .cr-why-card:hover h3 {
+  color: var(--p800);
+}
+
+html[data-theme="dark"] .cr-why-card:hover p {
+  color: var(--ink2);
+}
+
+/* ================================================= */
+/* DARK MODE OPEN ROLES */
+/* ================================================= */
+
+html[data-theme="dark"] .cr-roles {
+  background: #130d22;
+}
+
+html[data-theme="dark"] .cr-role-row {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .cr-role-row::before {
+  background: linear-gradient(180deg, #b69cff, #7455b8);
+}
+
+html[data-theme="dark"] .cr-role-row:hover {
+  background: rgba(199, 179, 255, .08);
+  border-color: rgba(199, 179, 255, .26);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .22);
+}
+
+html[data-theme="dark"] .cr-role-ico {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .16);
+}
+
+html[data-theme="dark"] .cr-role-ico svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-role-row:hover .cr-role-ico {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .cr-role-row:hover .cr-role-ico svg {
+  color: #fff;
+}
+
+html[data-theme="dark"] .cr-role-title {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .cr-role-row:hover .cr-role-title {
+  color: var(--p800);
+}
+
+html[data-theme="dark"] .cr-tag-type {
+  background: rgba(199, 179, 255, .12);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-tag-loc {
+  background: rgba(34, 197, 94, .1);
+  color: #86efac;
+  border-color: rgba(134, 239, 172, .22);
+}
+
+html[data-theme="dark"] .cr-tag-dep {
+  background: rgba(255, 255, 255, .045);
+  color: var(--ink3);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .cr-role-arrow {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .cr-role-arrow svg {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .cr-role-row:hover .cr-role-arrow {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .cr-role-row:hover .cr-role-arrow svg {
+  color: #fff;
+}
+
+/* ================================================= */
+/* DARK MODE VALUES STRIP */
+/* Already dark, only polish */
+/* ================================================= */
+
+html[data-theme="dark"] .cr-vals {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(199, 179, 255, .1), transparent 32%),
+    radial-gradient(circle at 92% 100%, rgba(157, 131, 230, .1), transparent 34%),
+    linear-gradient(150deg, #0f0a1c 0%, #1a1030 48%, #251552 100%);
+}
+
+html[data-theme="dark"] .cr-vals-grid {
+  background: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .13);
+}
+
+html[data-theme="dark"] .cr-val {
+  background: rgba(255, 255, 255, .065);
+}
+
+html[data-theme="dark"] .cr-val:hover {
+  background: rgba(255, 255, 255, .12);
+}
+
+html[data-theme="dark"] .cr-val-ico {
+  background: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .18);
+}
+
+/* ================================================= */
+/* DARK MODE APPLICATION FORM */
+/* ================================================= */
+
+html[data-theme="dark"] .cr-form-sec {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .cr-form-wrap {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .26);
+}
+
+html[data-theme="dark"] .cr-form-wrap::before {
+  background: radial-gradient(circle, rgba(199, 179, 255, .08), transparent 65%);
+}
+
+html[data-theme="dark"] .cr-fg label {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .cr-fg label span {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-fi {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .cr-fi::placeholder {
+  color: rgba(222, 214, 243, .48);
+}
+
+html[data-theme="dark"] .cr-fi:focus {
+  background: rgba(255, 255, 255, .075);
+  border-color: var(--p500);
+  box-shadow: 0 0 0 3px rgba(157, 131, 230, .18);
+}
+
+html[data-theme="dark"] select.cr-fi {
+  background-color: rgba(255, 255, 255, .055);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%23ded6f3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+html[data-theme="dark"] .cr-check span {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .cr-chk {
+  background: rgba(255, 255, 255, .055);
+  border-color: rgba(199, 179, 255, .32);
+}
+
+html[data-theme="dark"] .cr-check input:checked ~ .cr-chk {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .cr-file-box {
+  background: rgba(255, 255, 255, .045);
+  border-color: rgba(199, 179, 255, .32);
+}
+
+html[data-theme="dark"] .cr-file-box:hover {
+  background: rgba(199, 179, 255, .08);
+  border-color: rgba(199, 179, 255, .48);
+}
+
+html[data-theme="dark"] .cr-file-ico {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .16);
+}
+
+html[data-theme="dark"] .cr-file-ico svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-file-lbl {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cr-file-note {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .cr-form-div {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .cr-form-div::before,
+html[data-theme="dark"] .cr-form-div::after {
+  background: var(--line);
+}
+
+html[data-theme="dark"] .cr-success h3 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .cr-success p {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .cr-success-ico {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  box-shadow: 0 8px 28px rgba(124, 95, 214, .3);
+}
+
+/* ================================================= */
+/* DARK MODE MOBILE DRAWER */
+/* ================================================= */
+
+html[data-theme="dark"] .nav-toggle {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .nav-toggle:hover {
+  background: rgba(199, 179, 255, .1);
+}
+
+html[data-theme="dark"] .nav-toggle span {
+  background: var(--p700);
+}
+
+html[data-theme="dark"] .nav-overlay {
+  background: rgba(0, 0, 0, .55);
+}
+
+html[data-theme="dark"] .mobile-drawer {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(157, 131, 230, .14), transparent 32%),
+    #120c20;
+  border-left-color: rgba(222, 210, 255, .12);
+  box-shadow: -28px 0 80px rgba(0, 0, 0, .42);
+}
+
+html[data-theme="dark"] .drawer-head,
+html[data-theme="dark"] .drawer-links,
+html[data-theme="dark"] .drawer-bottom {
+  background: transparent;
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .drawer-logo {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .drawer-logo span {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-close {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .drawer-close:hover {
+  background: rgba(199, 179, 255, .1);
+}
+
+html[data-theme="dark"] .drawer-close span {
+  background: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-links a {
+  color: var(--ink2);
+  border-color: rgba(222, 210, 255, .08);
+}
+
+html[data-theme="dark"] .drawer-links a:hover,
+html[data-theme="dark"] .drawer-links a.active {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .2);
+  color: var(--p700);
+}
+
+/* Mobile drawer theme button */
+.drawer-theme-toggle {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.drawer-theme-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.drawer-theme-icon .theme-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.drawer-theme-toggle:hover {
+  background: var(--p100);
+  border-color: var(--p400);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle:hover {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .32);
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE FOOTER */
+/* ================================================= */
+
+html[data-theme="dark"] footer {
+  background: #0b0714;
+}
+
+html[data-theme="dark"] .f-top,
+html[data-theme="dark"] .fbot {
+  border-color: rgba(255, 255, 255, .08);
+}
+
+html[data-theme="dark"] .f-brand-name span {
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* RESPONSIVE THEME BUTTON FIX */
+/* ================================================= */
+
+@media (max-width: 900px) {
+  .nright .theme-toggle {
+    display: none;
+  }
+}
+
+/* ================================================= */
+/* FIX CAREER PAGE SELECT DROPDOWN ARROW */
+/* Paste at the VERY BOTTOM of career.css */
+/* ================================================= */
+
+/* Base select reset */
+select.cr-fi,
+.cr-fg select.cr-fi {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+
+  background-repeat: no-repeat !important;
+  background-position: right 18px center !important;
+  background-size: 18px 18px !important;
+
+  /* left space for your field icon + right space for arrow */
+  padding-left: 46px !important;
+  padding-right: 52px !important;
+
+  cursor: pointer;
+}
+
+/* Light mode select arrow */
+html[data-theme="light"] select.cr-fi,
+html:not([data-theme]) select.cr-fi {
+  background-color: var(--p50) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%237a7095' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+}
+
+/* Dark mode select arrow */
+html[data-theme="dark"] select.cr-fi {
+  background-color: rgba(255, 255, 255, .055) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23ded6f3' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+}
+
+/* Hover state should keep one arrow */
+html[data-theme="dark"] select.cr-fi:hover {
+  background-color: rgba(255, 255, 255, .07) !important;
+  background-repeat: no-repeat !important;
+  background-position: right 18px center !important;
+  background-size: 18px 18px !important;
+}
+
+/* Focus state should keep one arrow */
+html[data-theme="dark"] select.cr-fi:focus {
+  background-color: rgba(255, 255, 255, .085) !important;
+  border-color: var(--p500) !important;
+  box-shadow: 0 0 0 3px rgba(157, 131, 230, .18) !important;
+
+  background-repeat: no-repeat !important;
+  background-position: right 18px center !important;
+  background-size: 18px 18px !important;
+}
+
+/* Make select placeholder text readable */
+select.cr-fi:invalid {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] select.cr-fi:invalid {
+  color: rgba(222, 214, 243, .58);
+}
+
+/* Dropdown options */
+select.cr-fi option {
+  color: #1a1230;
+  background: #ffffff;
+}
+
+html[data-theme="dark"] select.cr-fi option {
+  color: #fbf8ff;
+  background: #211735;
+}

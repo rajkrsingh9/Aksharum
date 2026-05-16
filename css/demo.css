@@ -1430,3 +1430,543 @@ nav.menu-open .mobile-drawer {
     font-size: 13.5px;
   }
 }
+
+/* ================================================= */
+/* LIGHT / DARK MODE SYSTEM - DEMO PAGE */
+/* ================================================= */
+
+/* ---------- Smooth theme transition ---------- */
+html,
+body,
+nav,
+.dm-hero,
+.demo-sec,
+.dm-card,
+.dm-book,
+.dm-field input,
+.dm-field select,
+.dm-field textarea,
+.cal-box,
+.slots-box,
+.cal-date,
+.slot-btn,
+.wnext-sec,
+.wnt-card,
+.mobile-drawer,
+.drawer-theme-toggle {
+  transition:
+    background-color .28s ease,
+    color .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease;
+}
+
+/* ---------- Dark theme variables ---------- */
+html[data-theme="dark"] {
+  --p50: #171126;
+  --p100: #211735;
+  --p200: #31224f;
+  --p300: #4b3477;
+  --p400: #7455b8;
+  --p500: #9d83e6;
+  --p600: #b69cff;
+  --p700: #c7b3ff;
+  --p800: #ded2ff;
+  --p900: #0f0a1c;
+
+  --ink: #fbf8ff;
+  --ink2: #ded6f3;
+  --ink3: #a99dc2;
+
+  --bg: #0f0a1c;
+  --line: rgba(222, 210, 255, .14);
+
+  --sh: 0 2px 12px rgba(0, 0, 0, .22);
+  --sh-md: 0 8px 32px rgba(0, 0, 0, .28);
+  --sh-lg: 0 24px 64px rgba(0, 0, 0, .35);
+
+  color-scheme: dark;
+}
+
+/* ---------- Base dark body ---------- */
+html[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--ink2);
+}
+
+/* ================================================= */
+/* THEME TOGGLE BUTTON */
+/* ================================================= */
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: inline-grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all .28s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--p400);
+  background: var(--p100);
+  color: var(--p700);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(93, 63, 184, .14);
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+/* Light mode shows moon */
+.theme-sun {
+  opacity: 0;
+  transform: translateY(8px) rotate(-35deg) scale(.75);
+}
+
+.theme-moon {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+/* Dark mode shows sun */
+html[data-theme="dark"] .theme-sun {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+html[data-theme="dark"] .theme-moon {
+  opacity: 0;
+  transform: translateY(-8px) rotate(35deg) scale(.75);
+}
+
+/* ================================================= */
+/* DARK MODE NAVBAR */
+/* ================================================= */
+
+html[data-theme="dark"] nav {
+  background: rgba(15, 10, 28, .84);
+  border-bottom-color: rgba(222, 210, 255, .1);
+}
+
+html[data-theme="dark"] nav.scrolled {
+  border-color: rgba(222, 210, 255, .14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .nlinks a:hover {
+  background: rgba(255, 255, 255, .06);
+}
+
+html[data-theme="dark"] .nlinks a.active {
+  background: rgba(199, 179, 255, .12);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .lbox {
+  background: linear-gradient(135deg, #7c5fd6, #b8a4f0);
+  box-shadow: 0 8px 24px rgba(157, 131, 230, .24);
+}
+
+html[data-theme="dark"] .logo-accent {
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE HERO */
+/* ================================================= */
+
+html[data-theme="dark"] .dm-hero {
+  background:
+    radial-gradient(circle at 80% 0%, rgba(157, 131, 230, .18), transparent 36%),
+    radial-gradient(circle at 10% 90%, rgba(93, 63, 184, .16), transparent 34%),
+    linear-gradient(145deg, #120c20 0%, #19102b 48%, #0f0a1c 100%);
+}
+
+html[data-theme="dark"] .dm-hero::before {
+  background: radial-gradient(circle, rgba(199, 179, 255, .14), transparent 68%);
+}
+
+html[data-theme="dark"] .dm-hero::after {
+  background: radial-gradient(circle, rgba(157, 131, 230, .1), transparent 68%);
+}
+
+/* ================================================= */
+/* DARK MODE MAIN SECTIONS */
+/* ================================================= */
+
+html[data-theme="dark"] .demo-sec {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .dm-card,
+html[data-theme="dark"] .dm-book,
+html[data-theme="dark"] .wnt-card {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .dm-card:hover,
+html[data-theme="dark"] .wnt-item:hover .wnt-card {
+  border-color: rgba(199, 179, 255, .32);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, .34);
+}
+
+html[data-theme="dark"] .dm-card:hover h3,
+html[data-theme="dark"] .wnt-item:hover .wnt-card h3 {
+  color: var(--p800);
+}
+
+html[data-theme="dark"] .dm-card-glow,
+html[data-theme="dark"] .dm-book::before,
+html[data-theme="dark"] .dm-book::after {
+  opacity: .85;
+}
+
+/* Left card rows */
+html[data-theme="dark"] .dm-feat-row,
+html[data-theme="dark"] .dm-contact-item,
+html[data-theme="dark"] .success-details {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .dm-card:hover .dm-feat-row,
+html[data-theme="dark"] .dm-card:hover .dm-contact-item {
+  background: rgba(199, 179, 255, .08);
+  border-color: rgba(199, 179, 255, .18);
+}
+
+/* Icons */
+html[data-theme="dark"] .dm-icon,
+html[data-theme="dark"] .dm-ci-ico,
+html[data-theme="dark"] .wnt-ico {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .16);
+}
+
+html[data-theme="dark"] .dm-icon svg,
+html[data-theme="dark"] .dm-ci-ico svg,
+html[data-theme="dark"] .wnt-ico svg {
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE FORM */
+/* ================================================= */
+
+html[data-theme="dark"] .dm-field input,
+html[data-theme="dark"] .dm-field select,
+html[data-theme="dark"] .dm-field textarea {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .dm-field input::placeholder,
+html[data-theme="dark"] .dm-field textarea::placeholder {
+  color: rgba(222, 214, 243, .48);
+}
+
+html[data-theme="dark"] .dm-field input:focus,
+html[data-theme="dark"] .dm-field select:focus,
+html[data-theme="dark"] .dm-field textarea:focus {
+  background: rgba(255, 255, 255, .08);
+  border-color: var(--p500);
+  box-shadow: 0 0 0 4px rgba(157, 131, 230, .18);
+}
+
+html[data-theme="dark"] .dm-opt-lbl {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .dm-opt-lbl:hover,
+html[data-theme="dark"] .dm-opt:checked + .dm-opt-lbl {
+  background: rgba(199, 179, 255, .12);
+  border-color: rgba(199, 179, 255, .42);
+  color: var(--p700);
+}
+
+/* Select arrow for dark mode */
+html[data-theme="dark"] .dm-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ded6f3' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+}
+
+/* ================================================= */
+/* DARK MODE STEPS / BUTTONS */
+/* ================================================= */
+
+html[data-theme="dark"] .dm-step-circle {
+  background: rgba(255, 255, 255, .05);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .dm-step-line {
+  background: var(--line);
+}
+
+html[data-theme="dark"] .dm-btn-back {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .dm-btn-back:hover {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .32);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .dm-btn-next,
+html[data-theme="dark"] .n-demo,
+html[data-theme="dark"] .drawer-demo,
+html[data-theme="dark"] .dm-success-btn {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(124, 95, 214, .28);
+}
+
+html[data-theme="dark"] .dm-btn-next:hover,
+html[data-theme="dark"] .n-demo:hover,
+html[data-theme="dark"] .drawer-demo:hover,
+html[data-theme="dark"] .dm-success-btn:hover {
+  background: linear-gradient(135deg, #8f73e6, #c7b3ff);
+}
+
+/* ================================================= */
+/* DARK MODE CALENDAR */
+/* ================================================= */
+
+html[data-theme="dark"] .cal-box,
+html[data-theme="dark"] .slots-box {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .cal-nav-btn,
+html[data-theme="dark"] .cal-date,
+html[data-theme="dark"] .slot-btn {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .cal-date:hover:not(.disabled):not(.empty),
+html[data-theme="dark"] .slot-btn:hover:not(.booked-slot) {
+  background: rgba(199, 179, 255, .12);
+  border-color: rgba(199, 179, 255, .35);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cal-date.selected,
+html[data-theme="dark"] .slot-btn.selected-slot {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+  color: #fff;
+}
+
+html[data-theme="dark"] .cal-date.disabled,
+html[data-theme="dark"] .cal-date.booked {
+  background: rgba(255, 255, 255, .025);
+  color: rgba(222, 214, 243, .38);
+}
+
+html[data-theme="dark"] .cal-date.empty {
+  background: transparent;
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .slot-avail {
+  background: rgba(199, 179, 255, .12);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .cal-summary {
+  background: linear-gradient(135deg, rgba(199, 179, 255, .13), rgba(255, 255, 255, .04));
+  border-color: rgba(199, 179, 255, .24);
+}
+
+/* ================================================= */
+/* DARK MODE SUCCESS */
+/* ================================================= */
+
+html[data-theme="dark"] .success-ring {
+  background: linear-gradient(135deg, rgba(199, 179, 255, .18), rgba(157, 131, 230, .1));
+  border-color: rgba(199, 179, 255, .3);
+}
+
+/* ================================================= */
+/* DARK MODE WHAT HAPPENS NEXT */
+/* ================================================= */
+
+html[data-theme="dark"] .wnext-sec {
+  background: #130d22;
+  border-top-color: var(--line);
+}
+
+html[data-theme="dark"] .wnext-sec::before {
+  background: radial-gradient(ellipse, rgba(199, 179, 255, .1), transparent 68%);
+}
+
+html[data-theme="dark"] .wnt-number {
+  color: rgba(255, 255, 255, .055);
+}
+
+html[data-theme="dark"] .wnt-item:hover .wnt-number {
+  color: rgba(199, 179, 255, .12);
+}
+
+html[data-theme="dark"] .wnt-tag,
+html[data-theme="dark"] .dm-badge {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .2);
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE MOBILE DRAWER */
+/* ================================================= */
+
+html[data-theme="dark"] .nav-overlay {
+  background: rgba(0, 0, 0, .55);
+}
+
+html[data-theme="dark"] .mobile-drawer {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(157, 131, 230, .14), transparent 32%),
+    #120c20;
+  border-left-color: rgba(222, 210, 255, .12);
+}
+
+html[data-theme="dark"] .drawer-links a {
+  color: var(--ink2);
+  border-color: rgba(222, 210, 255, .1);
+}
+
+html[data-theme="dark"] .drawer-links a:hover {
+  background: rgba(199, 179, 255, .1);
+  color: var(--p700);
+}
+
+/* Mobile drawer theme button */
+.drawer-theme-toggle {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.drawer-theme-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.drawer-theme-icon .theme-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.drawer-theme-toggle:hover {
+  background: var(--p100);
+  border-color: var(--p400);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle:hover {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .32);
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE FOOTER */
+/* ================================================= */
+
+html[data-theme="dark"] footer {
+  background: #0b0714;
+}
+
+html[data-theme="dark"] .f-top {
+  border-bottom-color: rgba(255, 255, 255, .08);
+}
+
+/* ================================================= */
+/* RESPONSIVE THEME BUTTON FIX */
+/* ================================================= */
+
+@media (max-width: 900px) {
+  .nright .theme-toggle {
+    display: none;
+  }
+}
+
+/* ================================================= */
+/* FIX SELECT DROPDOWN ARROW IN LIGHT + DARK MODE */
+/* ================================================= */
+
+.dm-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 16px 16px !important;
+  padding-right: 46px !important;
+}
+
+/* Light mode select arrow */
+html[data-theme="light"] .dm-field select,
+html:not([data-theme]) .dm-field select {
+  background-color: var(--p50);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%237a7095' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+}
+
+/* Dark mode select arrow */
+html[data-theme="dark"] .dm-field select {
+  background-color: rgba(255, 255, 255, .055);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23ded6f3' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+}
+
+/* Focus state should also keep single arrow */
+html[data-theme="dark"] .dm-field select:focus {
+  background-color: rgba(255, 255, 255, .08);
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 16px 16px !important;
+}

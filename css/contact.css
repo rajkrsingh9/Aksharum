@@ -1407,3 +1407,691 @@ nav.menu-open .mobile-drawer {
     font-size: 13.5px;
   }
 }
+
+/* ================================================= */
+/* LIGHT / DARK MODE SYSTEM - CONTACT PAGE */
+/* Paste at the VERY BOTTOM of contact.css */
+/* ================================================= */
+
+/* ---------- Smooth theme transition ---------- */
+html,
+body,
+nav,
+.hero-wrap,
+.hbadge,
+.body-sec,
+.crow,
+.crow-ico,
+.demo-card,
+.dc-ico,
+.fcard,
+.pill,
+.ff input,
+.ff textarea,
+.ff select,
+.btn-book,
+.btn-send,
+.succ,
+.succ-ring,
+.map-section,
+.map-container,
+.map-pin-card,
+.pin-circle,
+.map-dir-btn,
+.mobile-drawer,
+.drawer-head,
+.drawer-links,
+.drawer-bottom,
+.drawer-theme-toggle,
+footer {
+  transition:
+    background-color .28s ease,
+    color .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    filter .28s ease;
+}
+
+/* ---------- Dark theme variables ---------- */
+html[data-theme="dark"] {
+  --p50: #171126;
+  --p100: #211735;
+  --p200: #31224f;
+  --p300: #4b3477;
+  --p400: #7455b8;
+  --p500: #9d83e6;
+  --p600: #b69cff;
+  --p700: #c7b3ff;
+  --p800: #ded2ff;
+  --p900: #0f0a1c;
+
+  --ink: #fbf8ff;
+  --ink2: #ded6f3;
+  --ink3: #a99dc2;
+
+  --bg: #0f0a1c;
+  --line: rgba(222, 210, 255, .14);
+
+  --sh: 0 2px 12px rgba(0, 0, 0, .22);
+  --sh-md: 0 8px 32px rgba(0, 0, 0, .28);
+  --sh-lg: 0 24px 64px rgba(0, 0, 0, .35);
+
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--ink2);
+}
+
+/* ================================================= */
+/* THEME TOGGLE BUTTON */
+/* Same HTML + JS as Demo/About/Career */
+/* ================================================= */
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: inline-grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all .28s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--p400);
+  background: var(--p100);
+  color: var(--p700);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(93, 63, 184, .14);
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+/* Light mode shows moon */
+.theme-sun {
+  opacity: 0;
+  transform: translateY(8px) rotate(-35deg) scale(.75);
+}
+
+.theme-moon {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+/* Dark mode shows sun */
+html[data-theme="dark"] .theme-sun {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+html[data-theme="dark"] .theme-moon {
+  opacity: 0;
+  transform: translateY(-8px) rotate(35deg) scale(.75);
+}
+
+/* ================================================= */
+/* DARK MODE NAVBAR */
+/* ================================================= */
+
+html[data-theme="dark"] nav {
+  background: rgba(15, 10, 28, .84);
+  border-bottom-color: rgba(222, 210, 255, .1);
+}
+
+html[data-theme="dark"] nav.scrolled {
+  border-color: rgba(222, 210, 255, .14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .logo {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .logo-accent {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .lbox {
+  background: linear-gradient(135deg, #7c5fd6, #b8a4f0);
+  box-shadow: 0 8px 24px rgba(157, 131, 230, .24);
+}
+
+html[data-theme="dark"] .nlinks a {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .nlinks a:hover {
+  background: rgba(255, 255, 255, .06);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .nlinks a.active {
+  background: rgba(199, 179, 255, .12);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .n-login {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .n-login:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, .06);
+}
+
+html[data-theme="dark"] .n-demo,
+html[data-theme="dark"] .drawer-demo,
+html[data-theme="dark"] .btn-book,
+html[data-theme="dark"] .btn-send,
+html[data-theme="dark"] .map-dir-btn {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(124, 95, 214, .28);
+}
+
+html[data-theme="dark"] .n-demo:hover,
+html[data-theme="dark"] .drawer-demo:hover,
+html[data-theme="dark"] .btn-book:hover,
+html[data-theme="dark"] .btn-send:hover,
+html[data-theme="dark"] .map-dir-btn:hover {
+  background: linear-gradient(135deg, #8f73e6, #c7b3ff);
+}
+
+/* ================================================= */
+/* DARK MODE HERO */
+/* ================================================= */
+
+html[data-theme="dark"] .hero-wrap {
+  background:
+    radial-gradient(circle at 86% 12%, rgba(157, 131, 230, .16), transparent 34%),
+    radial-gradient(circle at 12% 86%, rgba(199, 179, 255, .1), transparent 34%),
+    linear-gradient(145deg, #120c20 0%, #19102b 48%, #0f0a1c 100%);
+}
+
+html[data-theme="dark"] .hero-wrap::before {
+  background: radial-gradient(circle, rgba(199, 179, 255, .12) 0%, transparent 70%);
+}
+
+html[data-theme="dark"] .hero-wrap::after {
+  background: radial-gradient(circle, rgba(157, 131, 230, .1) 0%, transparent 70%);
+}
+
+html[data-theme="dark"] .hbadge {
+  background: rgba(255, 255, 255, .055);
+  border-color: rgba(199, 179, 255, .2);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .hbadge svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .hero h1 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .hero h1 em {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .hero-sub {
+  color: var(--ink3);
+}
+
+/* ================================================= */
+/* DARK MODE BODY / LEFT CONTACT INFO */
+/* ================================================= */
+
+html[data-theme="dark"] .body-sec {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .cleft h2 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .cleft .sub {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .crow-ico {
+  background: rgba(199, 179, 255, .1);
+  border: 1px solid rgba(199, 179, 255, .14);
+}
+
+html[data-theme="dark"] .crow:hover .crow-ico {
+  background: rgba(199, 179, 255, .16);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+}
+
+html[data-theme="dark"] .crow-ico svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .crow-txt small {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .crow-txt p,
+html[data-theme="dark"] .crow-txt a {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .crow-txt a:hover {
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE DEMO CARD */
+/* ================================================= */
+
+html[data-theme="dark"] .demo-card {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .22);
+}
+
+html[data-theme="dark"] .demo-card:hover {
+  background: rgba(199, 179, 255, .075);
+  border-color: rgba(199, 179, 255, .26);
+}
+
+html[data-theme="dark"] .dc-ico {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .18);
+}
+
+html[data-theme="dark"] .dc-ico svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .demo-card h3 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .demo-card p {
+  color: var(--ink3);
+}
+
+/* ================================================= */
+/* DARK MODE FORM CARD */
+/* ================================================= */
+
+html[data-theme="dark"] .fcard {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .26);
+}
+
+html[data-theme="dark"] .f-topic-lbl {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .pill {
+  background: rgba(255, 255, 255, .045);
+  border-color: rgba(222, 210, 255, .16);
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .pill:hover {
+  background: rgba(199, 179, 255, .08);
+  border-color: rgba(199, 179, 255, .34);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .pill.on {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(124, 95, 214, .24);
+}
+
+html[data-theme="dark"] .ff label {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .ff label .req {
+  color: #ff8aa0;
+}
+
+html[data-theme="dark"] .ff input,
+html[data-theme="dark"] .ff textarea,
+html[data-theme="dark"] .ff select {
+  background-color: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .ff input::placeholder,
+html[data-theme="dark"] .ff textarea::placeholder {
+  color: rgba(222, 214, 243, .48);
+}
+
+html[data-theme="dark"] .ff input:hover,
+html[data-theme="dark"] .ff textarea:hover,
+html[data-theme="dark"] .ff select:hover {
+  border-color: rgba(199, 179, 255, .34);
+}
+
+html[data-theme="dark"] .ff input:focus,
+html[data-theme="dark"] .ff textarea:focus,
+html[data-theme="dark"] .ff select:focus {
+  background-color: rgba(255, 255, 255, .075);
+  border-color: var(--p500);
+  box-shadow: 0 0 0 4px rgba(157, 131, 230, .18);
+}
+
+/* ================================================= */
+/* FIX CONTACT PAGE SELECT DROPDOWN ARROW */
+/* Prevent repeated arrows in dark/light mode */
+/* ================================================= */
+
+.ff select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 16px 16px !important;
+  padding-right: 42px !important;
+  cursor: pointer;
+}
+
+/* Light select arrow */
+html[data-theme="light"] .ff select,
+html:not([data-theme]) .ff select {
+  background-color: #f9f8fe !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%237a7095' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+}
+
+/* Dark select arrow */
+html[data-theme="dark"] .ff select {
+  background-color: rgba(255, 255, 255, .055) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23ded6f3' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+}
+
+/* Keep single arrow on hover/focus */
+html[data-theme="dark"] .ff select:hover,
+html[data-theme="dark"] .ff select:focus,
+html[data-theme="light"] .ff select:hover,
+html[data-theme="light"] .ff select:focus,
+html:not([data-theme]) .ff select:hover,
+html:not([data-theme]) .ff select:focus {
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 16px 16px !important;
+}
+
+/* Dropdown options */
+.ff select option {
+  color: #1a1230;
+  background: #ffffff;
+}
+
+html[data-theme="dark"] .ff select option {
+  color: #fbf8ff;
+  background: #211735;
+}
+
+/* ================================================= */
+/* DARK MODE SUCCESS STATE */
+/* ================================================= */
+
+html[data-theme="dark"] .succ-ring {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .32);
+}
+
+html[data-theme="dark"] .succ-ring svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .succ h3 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .succ p {
+  color: var(--ink3);
+}
+
+/* ================================================= */
+/* DARK MODE MAP SECTION */
+/* ================================================= */
+
+html[data-theme="dark"] .map-section {
+  background: #130d22;
+  border-top-color: var(--line);
+}
+
+html[data-theme="dark"] .map-head-left .eyebrow {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .map-head-left .eyebrow::before {
+  background: var(--p500);
+}
+
+html[data-theme="dark"] .map-head-left h2 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .map-head-left h2 em {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .map-head-left p {
+  color: var(--ink3);
+}
+
+html[data-theme="dark"] .map-info-row {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .map-info-row svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .map-info-row strong {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .map-container {
+  border-color: var(--line);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, .36);
+}
+
+html[data-theme="dark"] .map-container iframe {
+  filter:
+    saturate(.72)
+    hue-rotate(210deg)
+    brightness(.72)
+    contrast(1.08);
+}
+
+html[data-theme="dark"] .map-container:hover iframe {
+  filter:
+    saturate(.82)
+    hue-rotate(210deg)
+    brightness(.78)
+    contrast(1.1);
+}
+
+html[data-theme="dark"] .map-pin-card {
+  background: rgba(18, 12, 32, .92);
+  border-color: rgba(222, 210, 255, .16);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, .34);
+}
+
+html[data-theme="dark"] .pin-circle {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  box-shadow: 0 8px 24px rgba(124, 95, 214, .32);
+}
+
+html[data-theme="dark"] .pin-text strong {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .pin-text span {
+  color: var(--ink3);
+}
+
+/* ================================================= */
+/* DARK MODE MOBILE DRAWER */
+/* ================================================= */
+
+html[data-theme="dark"] .nav-toggle {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .nav-toggle:hover {
+  background: rgba(199, 179, 255, .1);
+}
+
+html[data-theme="dark"] .nav-toggle span {
+  background: var(--p700);
+}
+
+html[data-theme="dark"] .nav-overlay {
+  background: rgba(0, 0, 0, .55) !important;
+}
+
+html[data-theme="dark"] .mobile-drawer {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(157, 131, 230, .14), transparent 32%),
+    #120c20 !important;
+  border-left-color: rgba(222, 210, 255, .12);
+  box-shadow: -28px 0 80px rgba(0, 0, 0, .42);
+}
+
+html[data-theme="dark"] .drawer-head,
+html[data-theme="dark"] .drawer-links,
+html[data-theme="dark"] .drawer-bottom {
+  background: transparent !important;
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .drawer-logo {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .drawer-logo span {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-close {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .drawer-close:hover {
+  background: rgba(199, 179, 255, .1);
+}
+
+html[data-theme="dark"] .drawer-close span {
+  background: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-links a {
+  color: var(--ink2);
+  border-color: rgba(222, 210, 255, .08);
+}
+
+html[data-theme="dark"] .drawer-links a:hover,
+html[data-theme="dark"] .drawer-links a.active {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .2);
+  color: var(--p700);
+}
+
+/* Mobile drawer theme button */
+.drawer-theme-toggle {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.drawer-theme-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.drawer-theme-icon .theme-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.drawer-theme-toggle:hover {
+  background: var(--p100);
+  border-color: var(--p400);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle:hover {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .32);
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE FOOTER */
+/* ================================================= */
+
+html[data-theme="dark"] footer {
+  background: #0b0714;
+}
+
+html[data-theme="dark"] .f-top,
+html[data-theme="dark"] .fbot {
+  border-color: rgba(255, 255, 255, .08);
+}
+
+html[data-theme="dark"] .f-brand-name span {
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* RESPONSIVE THEME BUTTON FIX */
+/* ================================================= */
+
+@media (max-width: 900px) {
+  .nright .theme-toggle {
+    display: none;
+  }
+}

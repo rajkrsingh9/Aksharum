@@ -1301,3 +1301,600 @@ nav.menu-open .mobile-drawer {
     font-size: 13.5px;
   }
 }
+
+/* ================================================= */
+/* LIGHT / DARK MODE SYSTEM - ABOUT PAGE */
+/* Paste at the very bottom of about.css */
+/* ================================================= */
+
+/* ---------- Smooth theme transition ---------- */
+html,
+body,
+nav,
+.about-hero,
+.wwa-sec,
+.mva-sec,
+.hwb-sec,
+.twco-sec,
+.abv-sec,
+.ab-final-cta,
+.wwa-feat,
+.wwa-feat-ico,
+.mva-card,
+.twco-card-inner,
+.hwb-left-card,
+.hwb-item,
+.hwb-dot,
+.abv-grid,
+.abv-item,
+.mobile-drawer,
+.drawer-head,
+.drawer-links,
+.drawer-bottom,
+.drawer-theme-toggle,
+footer {
+  transition:
+    background-color .28s ease,
+    color .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease;
+}
+
+/* ---------- Dark theme variables ---------- */
+html[data-theme="dark"] {
+  --p50: #171126;
+  --p100: #211735;
+  --p200: #31224f;
+  --p300: #4b3477;
+  --p400: #7455b8;
+  --p500: #9d83e6;
+  --p600: #b69cff;
+  --p700: #c7b3ff;
+  --p800: #ded2ff;
+  --p900: #0f0a1c;
+
+  --ink: #fbf8ff;
+  --ink2: #ded6f3;
+  --ink3: #a99dc2;
+
+  --bg: #0f0a1c;
+  --line: rgba(222, 210, 255, .14);
+
+  --sh: 0 2px 12px rgba(0, 0, 0, .22);
+  --sh-md: 0 8px 32px rgba(0, 0, 0, .28);
+  --sh-lg: 0 24px 64px rgba(0, 0, 0, .35);
+
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--ink2);
+}
+
+/* ================================================= */
+/* THEME TOGGLE BUTTON */
+/* Same HTML + JS as Demo page */
+/* ================================================= */
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: inline-grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all .28s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--p400);
+  background: var(--p100);
+  color: var(--p700);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(93, 63, 184, .14);
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+/* Light mode shows moon */
+.theme-sun {
+  opacity: 0;
+  transform: translateY(8px) rotate(-35deg) scale(.75);
+}
+
+.theme-moon {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+/* Dark mode shows sun */
+html[data-theme="dark"] .theme-sun {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+html[data-theme="dark"] .theme-moon {
+  opacity: 0;
+  transform: translateY(-8px) rotate(35deg) scale(.75);
+}
+
+/* ================================================= */
+/* DARK MODE NAVBAR */
+/* ================================================= */
+
+html[data-theme="dark"] nav {
+  background: rgba(15, 10, 28, .84);
+  border-bottom-color: rgba(222, 210, 255, .1);
+}
+
+html[data-theme="dark"] nav.scrolled {
+  border-color: rgba(222, 210, 255, .14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .logo {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .logo-accent {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .lbox {
+  background: linear-gradient(135deg, #7c5fd6, #b8a4f0);
+  box-shadow: 0 8px 24px rgba(157, 131, 230, .24);
+}
+
+html[data-theme="dark"] .nlinks a {
+  color: var(--ink2);
+}
+
+html[data-theme="dark"] .nlinks a:hover {
+  background: rgba(255, 255, 255, .06);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .nlinks a.active {
+  background: rgba(199, 179, 255, .12);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .n-demo,
+html[data-theme="dark"] .drawer-demo,
+html[data-theme="dark"] .wwa-btn,
+html[data-theme="dark"] .ab-final-btn-pri {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(124, 95, 214, .28);
+}
+
+html[data-theme="dark"] .n-demo:hover,
+html[data-theme="dark"] .drawer-demo:hover,
+html[data-theme="dark"] .wwa-btn:hover,
+html[data-theme="dark"] .ab-final-btn-pri:hover {
+  background: linear-gradient(135deg, #8f73e6, #c7b3ff);
+}
+
+/* ================================================= */
+/* DARK MODE ABOUT HERO */
+/* ================================================= */
+
+html[data-theme="dark"] .about-hero {
+  background:
+    radial-gradient(circle at 14% 20%, rgba(157, 131, 230, .14), transparent 34%),
+    radial-gradient(circle at 84% 52%, rgba(93, 63, 184, .16), transparent 36%),
+    linear-gradient(145deg, #120c20 0%, #19102b 48%, #0f0a1c 100%);
+}
+
+html[data-theme="dark"] .bg-orb-left {
+  background: radial-gradient(circle, rgba(199, 179, 255, .12) 0%, transparent 65%);
+}
+
+html[data-theme="dark"] .bg-orb-right {
+  background: radial-gradient(circle, rgba(157, 131, 230, .1) 0%, transparent 65%);
+}
+
+html[data-theme="dark"] .bg-orb-mid {
+  background: radial-gradient(circle, rgba(184, 164, 240, .1) 0%, transparent 65%);
+}
+
+html[data-theme="dark"] .hero-wave path {
+  fill: var(--bg);
+}
+
+html[data-theme="dark"] .hero-kite,
+html[data-theme="dark"] .hero-book {
+  opacity: .32;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, .22));
+}
+
+/* ================================================= */
+/* DARK MODE WHO WE ARE */
+/* ================================================= */
+
+html[data-theme="dark"] .wwa-sec {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .wwa-sec::before {
+  background: radial-gradient(circle, rgba(199, 179, 255, .08), transparent 65%);
+}
+
+html[data-theme="dark"] .wwa-img {
+  mix-blend-mode: normal;
+  filter:
+    drop-shadow(0 22px 44px rgba(0, 0, 0, .26))
+    saturate(.95)
+    brightness(.92);
+}
+
+html[data-theme="dark"] .wwa-feat {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .wwa-feat:hover {
+  background: rgba(199, 179, 255, .08);
+  border-color: rgba(199, 179, 255, .26);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .24);
+}
+
+html[data-theme="dark"] .wwa-feat-ico {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .16);
+}
+
+html[data-theme="dark"] .wwa-feat-ico svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .wwa-feat:hover .wwa-feat-ico {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .wwa-feat:hover .wwa-feat-ico svg {
+  color: #fff;
+}
+
+html[data-theme="dark"] .wwa-feat:hover h4 {
+  color: var(--p800);
+}
+
+html[data-theme="dark"] .wwa-link,
+html[data-theme="dark"] .hwb-link {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .wwa-link:hover,
+html[data-theme="dark"] .hwb-link:hover {
+  color: var(--p800);
+}
+
+/* ================================================= */
+/* DARK MODE MISSION / VISION / APPROACH */
+/* Already dark section, only polish it */
+/* ================================================= */
+
+html[data-theme="dark"] .mva-sec {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(199, 179, 255, .12), transparent 30%),
+    radial-gradient(circle at 0% 100%, rgba(157, 131, 230, .1), transparent 34%),
+    linear-gradient(150deg, #0f0a1c 0%, #1a1030 48%, #251552 100%);
+}
+
+html[data-theme="dark"] .mva-card {
+  background: rgba(255, 255, 255, .075);
+  border-color: rgba(255, 255, 255, .13);
+}
+
+html[data-theme="dark"] .mva-card:hover {
+  background: rgba(255, 255, 255, .11);
+  border-color: rgba(255, 255, 255, .26);
+}
+
+html[data-theme="dark"] .mva-watermark {
+  opacity: .035;
+}
+
+html[data-theme="dark"] .mva-card:hover .mva-watermark {
+  opacity: .065;
+}
+
+/* ================================================= */
+/* DARK MODE HOW WE BUILT IT */
+/* ================================================= */
+
+html[data-theme="dark"] .hwb-sec {
+  background: #130d22;
+}
+
+html[data-theme="dark"] .hwb-sec::before {
+  background: radial-gradient(circle, rgba(199, 179, 255, .08), transparent 65%);
+}
+
+html[data-theme="dark"] .hwb-sec::after {
+  background: radial-gradient(circle, rgba(157, 131, 230, .07), transparent 65%);
+}
+
+html[data-theme="dark"] .hwb-left-card {
+  background: rgba(255, 255, 255, .045);
+  border-color: var(--line);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .hwb-stat-block {
+  border-top-color: var(--line);
+  border-bottom-color: var(--line);
+}
+
+html[data-theme="dark"] .hwb-stat-divider {
+  background: var(--line);
+}
+
+html[data-theme="dark"] .hwb-tline::before {
+  background: var(--line);
+}
+
+html[data-theme="dark"] .hwb-tline-fill {
+  background: linear-gradient(180deg, #b69cff, #7455b8);
+}
+
+html[data-theme="dark"] .hwb-item:not(:last-child) {
+  border-bottom-color: var(--line);
+}
+
+html[data-theme="dark"] .hwb-dot {
+  background: #211735;
+  border-color: rgba(199, 179, 255, .18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .22);
+}
+
+html[data-theme="dark"] .hwb-dot svg {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .hwb-item:hover .hwb-dot {
+  background: linear-gradient(135deg, #7c5fd6, #a88cff);
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .hwb-item:hover .hwb-content h4 {
+  color: var(--p800);
+}
+
+/* ================================================= */
+/* DARK MODE THINGS WE WON'T COMPROMISE */
+/* Already dark section, only polish it */
+/* ================================================= */
+
+html[data-theme="dark"] .twco-sec {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(199, 179, 255, .1), transparent 32%),
+    radial-gradient(circle at 92% 100%, rgba(157, 131, 230, .1), transparent 34%),
+    linear-gradient(150deg, #0f0a1c 0%, #1a1030 48%, #251552 100%);
+}
+
+html[data-theme="dark"] .twco-card-inner {
+  background: rgba(255, 255, 255, .075);
+  border-color: rgba(255, 255, 255, .13);
+}
+
+html[data-theme="dark"] .twco-card:hover .twco-card-inner {
+  background: rgba(255, 255, 255, .11);
+  border-color: rgba(255, 255, 255, .26);
+}
+
+/* ================================================= */
+/* DARK MODE VALUES */
+/* ================================================= */
+
+html[data-theme="dark"] .abv-sec {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .abv-grid {
+  background: var(--line);
+  border-color: var(--line);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .24);
+}
+
+html[data-theme="dark"] .abv-item {
+  background: rgba(255, 255, 255, .045);
+}
+
+html[data-theme="dark"] .abv-item::before {
+  background: linear-gradient(135deg, rgba(199, 179, 255, .12), transparent 58%);
+}
+
+html[data-theme="dark"] .abv-item:hover {
+  background: rgba(199, 179, 255, .08);
+}
+
+html[data-theme="dark"] .abv-item:hover .abv-word {
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE FINAL CTA */
+/* ================================================= */
+
+html[data-theme="dark"] .ab-final-cta {
+  background: #130d22;
+  border-top-color: var(--line);
+}
+
+html[data-theme="dark"] .ab-final-cta::before {
+  background: radial-gradient(ellipse, rgba(199, 179, 255, .1), transparent 68%);
+}
+
+html[data-theme="dark"] .ab-final-btn-sec {
+  background: rgba(255, 255, 255, .045);
+  border-color: rgba(199, 179, 255, .24);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .ab-final-btn-sec:hover {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .36);
+  color: var(--p800);
+}
+
+/* ================================================= */
+/* DARK MODE MOBILE DRAWER */
+/* ================================================= */
+
+html[data-theme="dark"] .nav-toggle {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .nav-toggle:hover {
+  background: rgba(199, 179, 255, .1);
+}
+
+html[data-theme="dark"] .nav-toggle span {
+  background: var(--p700);
+}
+
+html[data-theme="dark"] .nav-overlay {
+  background: rgba(0, 0, 0, .55);
+}
+
+html[data-theme="dark"] .mobile-drawer {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(157, 131, 230, .14), transparent 32%),
+    #120c20;
+  border-left-color: rgba(222, 210, 255, .12);
+  box-shadow: -28px 0 80px rgba(0, 0, 0, .42);
+}
+
+html[data-theme="dark"] .drawer-head,
+html[data-theme="dark"] .drawer-links,
+html[data-theme="dark"] .drawer-bottom {
+  background: transparent;
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .drawer-logo {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .drawer-logo span {
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-close {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .drawer-close:hover {
+  background: rgba(199, 179, 255, .1);
+}
+
+html[data-theme="dark"] .drawer-close span {
+  background: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-links a {
+  color: var(--ink2);
+  border-color: rgba(222, 210, 255, .08);
+}
+
+html[data-theme="dark"] .drawer-links a:hover,
+html[data-theme="dark"] .drawer-links a.active {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .2);
+  color: var(--p700);
+}
+
+/* Mobile drawer theme button */
+.drawer-theme-toggle {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 16px;
+  border-radius: var(--rpill);
+  border: 1.5px solid var(--line);
+  background: var(--p50);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.drawer-theme-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.drawer-theme-icon .theme-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.drawer-theme-toggle:hover {
+  background: var(--p100);
+  border-color: var(--p400);
+  color: var(--p700);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle {
+  background: rgba(255, 255, 255, .055);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .drawer-theme-toggle:hover {
+  background: rgba(199, 179, 255, .1);
+  border-color: rgba(199, 179, 255, .32);
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* DARK MODE FOOTER */
+/* ================================================= */
+
+html[data-theme="dark"] footer {
+  background: #0b0714;
+}
+
+html[data-theme="dark"] .f-top,
+html[data-theme="dark"] .fbot {
+  border-color: rgba(255, 255, 255, .08);
+}
+
+html[data-theme="dark"] .f-brand-name span {
+  color: var(--p700);
+}
+
+/* ================================================= */
+/* RESPONSIVE THEME BUTTON FIX */
+/* ================================================= */
+
+@media (max-width: 900px) {
+  .nright .theme-toggle {
+    display: none;
+  }
+}
