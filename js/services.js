@@ -85,3 +85,53 @@ gsap.fromTo('.faq-item',
    scrollTrigger:{trigger:'#faqList',start:'top 85%',once:true}}
 );
 
+gsap.registerPlugin(ScrollTrigger);
+
+/* ─── NAV SCROLL + DRAWER ─── */
+const nav = document.getElementById('nav');
+
+window.addEventListener('scroll', () => {
+  nav?.classList.toggle('scrolled', scrollY > 30);
+}, { passive: true });
+
+const navToggle = document.getElementById('navToggle');
+const navOverlay = document.getElementById('navOverlay');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const drawerClose = document.getElementById('drawerClose');
+
+function closeMobileNav() {
+  nav?.classList.remove('menu-open');
+  document.body.classList.remove('nav-lock');
+  navToggle?.setAttribute('aria-expanded', 'false');
+  mobileDrawer?.setAttribute('aria-hidden', 'true');
+}
+
+function openMobileNav() {
+  nav?.classList.add('menu-open');
+  document.body.classList.add('nav-lock');
+  navToggle?.setAttribute('aria-expanded', 'true');
+  mobileDrawer?.setAttribute('aria-hidden', 'false');
+}
+
+if (nav && navToggle) {
+  navToggle.addEventListener('click', () => {
+    nav.classList.contains('menu-open') ? closeMobileNav() : openMobileNav();
+  });
+
+  drawerClose?.addEventListener('click', closeMobileNav);
+  navOverlay?.addEventListener('click', closeMobileNav);
+
+  document.querySelectorAll('.drawer-links a, .drawer-demo, .drawer-logo').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMobileNav();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+}
+
+/* ─── REST OF YOUR services.js BELOW (hero timeline, scroll triggers, etc.) ─── */

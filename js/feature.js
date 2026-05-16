@@ -1,6 +1,73 @@
 gsap.registerPlugin(ScrollTrigger);
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>30),{passive:true});
 
+/* ==========================================================================
+   FEATURES PAGE — MOBILE DRAWER JS
+   In feature.js, find the FIRST two lines:
+
+     gsap.registerPlugin(ScrollTrigger);
+     window.addEventListener('scroll',()=>document.getElementById('nav')
+       .classList.toggle('scrolled',scrollY>30),{passive:true});
+
+   DELETE the second line (the scroll listener) and paste THIS block
+   right after gsap.registerPlugin(ScrollTrigger);  — the scroll state
+   is re-added below, plus the drawer logic. Keep everything else.
+   ========================================================================== */
+
+/* ─── NAV scroll state ─── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav?.classList.toggle('scrolled', scrollY > 30);
+}, { passive: true });
+
+/* ─── CLEAN MOBILE DRAWER NAV ─── */
+const navToggle = document.getElementById('navToggle');
+const navOverlay = document.getElementById('navOverlay');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const drawerClose = document.getElementById('drawerClose');
+
+function closeMobileNav() {
+  nav?.classList.remove('menu-open');
+  document.body.classList.remove('nav-lock');
+
+  navToggle?.setAttribute('aria-expanded', 'false');
+  navToggle?.setAttribute('aria-label', 'Open menu');
+  mobileDrawer?.setAttribute('aria-hidden', 'true');
+}
+
+function openMobileNav() {
+  nav?.classList.add('menu-open');
+  document.body.classList.add('nav-lock');
+
+  navToggle?.setAttribute('aria-expanded', 'true');
+  navToggle?.setAttribute('aria-label', 'Close menu');
+  mobileDrawer?.setAttribute('aria-hidden', 'false');
+}
+
+if (nav && navToggle) {
+  navToggle.addEventListener('click', () => {
+    nav.classList.contains('menu-open') ? closeMobileNav() : openMobileNav();
+  });
+
+  drawerClose?.addEventListener('click', closeMobileNav);
+  navOverlay?.addEventListener('click', closeMobileNav);
+
+  document.querySelectorAll('.drawer-links a, .drawer-demo, .drawer-logo').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMobileNav();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+}
+
+
+
+
 // HERO
 const htl=gsap.timeline({delay:.1});
 htl.fromTo('#fEy',{opacity:0,y:14},{opacity:1,y:0,duration:.65,ease:'power3.out'})
@@ -49,3 +116,5 @@ document.querySelectorAll('.btn-pri,.n-demo').forEach(btn=>{
   btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect(),dx=(e.clientX-r.left-r.width/2)*.18,dy=(e.clientY-r.top-r.height/2)*.18;gsap.to(btn,{x:dx,y:dy,duration:.3,ease:'power2.out'})});
   btn.addEventListener('mouseleave',()=>gsap.to(btn,{x:0,y:0,duration:.55,ease:'elastic.out(1,.5)'}));
 });
+
+

@@ -5,6 +5,64 @@ window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',scrollY>30);
 },{passive:true});
 
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ─── NAV scroll state ─── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav?.classList.toggle('scrolled', scrollY > 30);
+}, { passive: true });
+
+/* ─── CLEAN MOBILE DRAWER NAV ─── */
+const navToggle = document.getElementById('navToggle');
+const navOverlay = document.getElementById('navOverlay');
+const mobileDrawer = document.getElementById('mobileDrawer');
+const drawerClose = document.getElementById('drawerClose');
+
+function closeMobileNav() {
+  nav?.classList.remove('menu-open');
+  document.body.classList.remove('nav-lock');
+
+  navToggle?.setAttribute('aria-expanded', 'false');
+  navToggle?.setAttribute('aria-label', 'Open menu');
+  mobileDrawer?.setAttribute('aria-hidden', 'true');
+}
+
+function openMobileNav() {
+  nav?.classList.add('menu-open');
+  document.body.classList.add('nav-lock');
+
+  navToggle?.setAttribute('aria-expanded', 'true');
+  navToggle?.setAttribute('aria-label', 'Close menu');
+  mobileDrawer?.setAttribute('aria-hidden', 'false');
+}
+
+if (nav && navToggle) {
+  navToggle.addEventListener('click', () => {
+    nav.classList.contains('menu-open') ? closeMobileNav() : openMobileNav();
+  });
+
+  drawerClose?.addEventListener('click', closeMobileNav);
+  navOverlay?.addEventListener('click', closeMobileNav);
+
+  document.querySelectorAll('.drawer-links a, .drawer-demo, .drawer-logo').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMobileNav();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+}
+
+/* ─── REST OF YOUR ABOUT.JS CONTINUES BELOW UNCHANGED ─── */
+/* Keep all your GSAP hero/section animations exactly as they are.
+   Just paste this block at the top, replacing the old scroll listener. */
+
 // ─── HERO entrance ───
 gsap.set('#hey',{autoAlpha:0,y:14});
 gsap.set('.word',{autoAlpha:0,y:42});
@@ -57,7 +115,7 @@ ScrollTrigger.create({
     gsap.fromTo('.mva-ico',{scale:.5,opacity:0},
       {scale:1,opacity:1,stagger:.18,duration:.55,ease:'back.out(1.9)',delay:.2});
     gsap.fromTo('.mva-watermark',{opacity:0,scale:.5},
-      {opacity:1,scale:1,stagger:.18,duration:.8,ease:'power2.out',delay:.3});
+      {opacity:.04,scale:1,stagger:.18,duration:.8,ease:'power2.out',delay:.3});
   }
 });
 
