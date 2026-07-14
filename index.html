@@ -26,12 +26,9 @@
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════════════════════
-     HOME PAGE (index.html) — REPLACE your existing
-     <nav id="nav">...</nav> with THIS entire block.
-     Only the hamburger + overlay + drawer are new.
-     ════════════════════════════════════════════════════════════════ -->
-<nav id="nav">
+<!-- NAVIGATION -->
+
+<nav id="nav" style="background: linear-gradient(180deg, #FFFFFF 2%, #EDE9FE 55%, #7551DC 100%);">
   <div class="nw">
     <a href="index.html" class="logo">
       <div class="lbox">
@@ -150,22 +147,31 @@
 
   <!-- LEFT TEXT -->
   <div class="hero-left">
-    <h1 id="h-title">
-      Revolutionizing<br>Next-Generation<br>School <em>Management.</em>
+    <h1 id="h-title"> 
+      The Operating<br>System for <br>Modern <em>Schools.</em>
     </h1>
     <p class="hero-desc" id="h-desc">
-      Aksharum is a next-generation ERP platform that empowers schools with smarter academics, seamless communication, intelligent management, and connected digital experiences.
+      <!-- Manage academics, admissions, attendance, fees, communication, and administration from one intelligent platform. -->
+      <!-- Empower your school with smarter academics, seamless communication, intelligent management, and connected digital experiences. -->
+      
+      Every classroom connected. Every operation simplified.
     </p>
+   
     <div class="hero-btns" id="h-btns">
       <button class="btn-white" onclick="location.href='about.html'">
-        Know More
+        Explore Platform
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
       <button class="btn-ghost" onclick="location.href='demo.html'">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Book Demo
+        See it in Action
       </button>
     </div>
+     <p class="hero-desc" id="h-desc" style="margin-top: 24px;">
+      
+      Admissions • Academics • Attendance • Fees • Communication • Analytics
+    </p>
+
   </div>
 
   <!-- RIGHT: blob + student + dashboard -->
@@ -300,13 +306,14 @@
 </section>
 
 <!-- ══ PROBLEM CARDS ══ -->
-<section class="prob-sec" id="problemSec">
+<section class="prob-sec" id="problemSec" style="background: linear-gradient(360deg, #FFFFFF 2%, #EDE9FE 55%, #644abe 100%);">
   <div class="prob-inner">
 
     <div class="prob-hd">
-      <div class="prob-eyebrow-lbl">The Problem We Solve</div>
-      <h2>Running a school is <em>harder<br>than it should be</em></h2>
-      <p>Three critical breakdowns drain schools every day — all caused by disconnected systems and zero visibility.</p>
+      <div class="prob-eyebrow-lbl" style="color: #e5e9ff;">Why Schools Struggle Today</div>
+      <h2>Schools Have  <em>Changed. <br>Software Hasn't.</em></h2>
+      <p>
+Disconnected tools, repetitive work, and poor communication slow schools down every day. </p>
     </div>
 
     <div class="prob-cards">
@@ -321,20 +328,23 @@
             <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
           </svg>
         </div>
-        <h3>Hours Lost to Manual Work</h3>
-        <p class="pcard-desc">Teachers and admins repeat the same paper-based rituals every day. Time that should go to students disappears into clerical tasks that a modern platform handles automatically.</p>
+        <h3>Administrative Overload</h3>
+        <p class="pcard-desc">
+Teachers spend hours on repetitive tasks that software should automate.
+        </p>
         <div class="pain-list">
           <div class="pain-row">
             <span class="pain-dot"></span>
-            Attendance registered by hand, every class, every day
+            Manual attendance tracking
+
           </div>
           <div class="pain-row">
             <span class="pain-dot"></span>
-            Salary slips typed, printed and hand-delivered monthly
-          </div>
+Repetitive timetable planning
+         </div>
           <div class="pain-row">
             <span class="pain-dot"></span>
-            Timetables rebuilt from scratch each term
+Payroll & administrative paperwork 
           </div>
         </div>
       </div>
@@ -348,21 +358,25 @@
             <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
           </svg>
         </div>
-        <h3>Parents &amp; Students Left in the Dark</h3>
-        <p class="pcard-desc">When information doesn't flow, trust erodes. Parents have no window into attendance, results, or fees. Students wait days to know if they passed. Urgent notices arrive a week late — or not at all.</p>
+        <h3>Disconnected Communication</h3>
+        <p class="pcard-desc">Parents, teachers, and students miss important updates because communication is fragmented.</p>
         <div class="pain-list">
           <div class="pain-row">
             <span class="pain-dot"></span>
-            Results take 3–5 days to reach students post-exam
+            
+            No Real-time alert engine
+
+
           </div>
           <div class="pain-row">
             <span class="pain-dot"></span>
-            No real-time alerts for absences, events or fee dues
-          </div>
+No In-app chat & file sharing
+  </div>
           <div class="pain-row">
             <span class="pain-dot"></span>
-            Documents shared on WhatsApp with no version control
-          </div>
+No Unified student portfolio    
+
+</div>
         </div>
       </div>
 
@@ -375,20 +389,22 @@
             <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
           </svg>
         </div>
-        <h3>Five Tools, Zero Integration</h3>
-        <p class="pcard-desc">Schools juggle separate apps for fees, exams, results, communication and documents. Data re-entered between tools means data corrupted. Every handoff is a failure point, a privacy risk, and a time sink.</p>
+        <h3>One School. Five Different Systems.</h3>
+        <p class="pcard-desc">
+Critical information lives across spreadsheets, registers, and disconnected applications.
+        </p>
         <div class="pain-list">
           <div class="pain-row">
             <span class="pain-dot"></span>
-            Same student data re-entered into 4–5 separate systems
+            No real-time insights
           </div>
           <div class="pain-row">
             <span class="pain-dot"></span>
-            No single source of truth — every report contradicts
+            Limited operational visibility
           </div>
           <div class="pain-row">
             <span class="pain-dot"></span>
-            Data silos make school-wide decisions impossible
+Slow document retrieval
           </div>
         </div>
       </div>
