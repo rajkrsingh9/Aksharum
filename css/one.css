@@ -11,6 +11,9 @@
   --p800:#3f2885;--p900:#251552;
   --ink:#1a1230;--ink2:#4a4063;--ink3:#7a7095;
   --line:#ece6fb;--rpill:999px;
+  --nav-bg-start: #FFFFFF;
+  --nav-bg-middle: #EDE9FE;
+  --nav-bg-end: #7551DC;
 
   /* ── ONE container width + ONE gutter for the whole page ── */
   --page-max:1280px;
@@ -683,6 +686,15 @@ html,body,nav,.logo,.lbox,.nlinks a,.n-login,.n-demo,.theme-toggle,.nav-toggle,.
 
 html[data-theme="dark"]{--p50:#171126;--p100:#211735;--p200:#31224f;--p300:#4b3477;--p400:#7455b8;--p500:#9d83e6;--p600:#b69cff;--p700:#c7b3ff;--p800:#ded2ff;--p900:#0f0a1c;--ink:#fbf8ff;--ink2:#ded6f3;--ink3:#a99dc2;--line:rgba(222,210,255,.14);color-scheme:dark}
 html[data-theme="dark"] body{background:#0f0a1c;color:var(--ink2)}
+
+[data-theme="dark"] {
+  /* Dark mode: transitions from dark background down into your hero section */
+  --nav-bg-start: #0F0E17;
+  --nav-bg-middle: #1B1834;
+  --nav-bg-end: #2a1d58;
+  
+  --nav-text-color: #F0F0F0;
+}
 
 html[data-theme="dark"] nav{background:rgba(15,10,28,.88);border-bottom-color:rgba(222,210,255,.1)}
 html[data-theme="dark"] nav.scrolled{box-shadow:0 8px 30px rgba(0,0,0,.28)}
